@@ -10,6 +10,12 @@ No Lint
 ## Use
 
 1. Clone it
+
+```bash
+git clone --depth 1 --single-branch --branch master https://github.com/xVanTuring/my-electron-react-typescript-boilerplate.git your-project-name
+
+```
+
 2. use yarn or npm to install dep
 3. `yarn dev` to start dev mode
    > for using css class in tsx
