@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["es7"]
+  },
+  "files": [
+    "./webpack.config.renderer.dev.babel.ts",
+    "./webpack.config.renderer.dev.dll.babel.ts",
+    "./webpack.config.base.ts"
+  ]
+}
