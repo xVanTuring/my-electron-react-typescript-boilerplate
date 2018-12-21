@@ -5,7 +5,7 @@
 import path from 'path';
 import webpack, { Configuration } from 'webpack';
 import { dependencies } from '../package.json';
-let configuration: Configuration = {
+const configuration: Configuration = {
   externals: [...Object.keys(dependencies || {})],
 
   module: {

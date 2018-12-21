@@ -7,23 +7,23 @@
  * https://webpack.js.org/concepts/hot-module-replacement/
  */
 
-import path from 'path';
-import fs from 'fs';
-import webpack, { Configuration } from 'webpack';
 import chalk from 'chalk';
+import { execSync, spawn } from 'child_process';
+import fs from 'fs';
+import path from 'path';
+import webpack, { Configuration } from 'webpack';
 import merge from 'webpack-merge';
-import { spawn, execSync } from 'child_process';
-import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+import baseConfig from './webpack.config.base';
 
 CheckNodeEnv('development');
 
-const port = process.env.PORT ? parseInt(process.env.PORT) : 1212;
+const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 1212;
 const publicPath = `http://localhost:${port}/dist`;
 const dll = path.join(__dirname, '..', 'dll');
 const manifest = path.resolve(dll, 'renderer.json');
 const requiredByDLLConfig = module.parent.filename.includes(
-  'webpack.config.renderer.dev.dll',
+  'webpack.config.renderer.dev.dll'
 );
 
 /**
@@ -32,12 +32,12 @@ const requiredByDLLConfig = module.parent.filename.includes(
 if (!requiredByDLLConfig && !(fs.existsSync(dll) && fs.existsSync(manifest))) {
   console.log(
     chalk.black.bgYellow.bold(
-      'The DLL files are missing. Sit back while we build them for you with "yarn build-dll"',
-    ),
+      'The DLL files are missing. Sit back while we build them for you with "yarn build-dll"'
+    )
   );
   execSync('yarn build-dll');
 }
-let configuration: Configuration = {
+const configuration: Configuration = {
   devtool: 'inline-source-map',
 
   mode: 'development',
@@ -52,15 +52,15 @@ let configuration: Configuration = {
   ],
 
   output: {
-    publicPath: `http://localhost:${port}/dist/`,
     filename: 'renderer.dev.js',
+    publicPath: `http://localhost:${port}/dist/`,
   },
 
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
+        test: /\.(js|jsx|ts|tsx)$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -91,10 +91,10 @@ let configuration: Configuration = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              sourceMap: true,
               importLoaders: 1,
               localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
+              sourceMap: true,
             },
           },
         ],
@@ -237,9 +237,9 @@ let configuration: Configuration = {
   },
 
   devServer: {
+    compress: true,
     port,
     publicPath,
-    compress: true,
     noInfo: true,
     stats: 'errors-only',
     inline: true,
