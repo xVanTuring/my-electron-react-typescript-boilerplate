@@ -19,11 +19,11 @@
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development TS_NODE_PROJECT=\"./configs/tsconfig.json\" electron -r ts-node/register ./app/main.dev.ts",
     "start-renderer-dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\"./configs/tsconfig.json\" webpack-dev-server --config configs/webpack.config.renderer.dev.babel.ts",
-    "tcm": "tcm app",
+    "tcm": "tcm -p \"app/**/*.(css|scss)\"",
     "precommit": "lint-staged",
     "lint":"tslint --project tsconfig.json --config tslint.json",
     "lint-fix":"yarn lint --fix",
-    "lint-styles": "stylelint  \"**/*.*(css|scss)\" --ignore-path .eslintignore --syntax scss",
+    "lint-styles": "stylelint  \"**/*.(css|scss)\" --ignore-path .eslintignore --syntax scss",
     "lint-styles-fix": "yarn lint-styles --fix",
     "postlint-styles-fix": "prettier --ignore-path .eslintignore --single-quote --write \"**/*.{css,scss}\""
   },
