@@ -1,5 +1,7 @@
 ## My Electron React Typescript Template
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xVanTuring/my-electron-react-typescript-boilerplate.svg)](https://greenkeeper.io/)
+
 > based on electron-react-boilerplate and electron-react-typescript-boilerplate
 
 ## Info
