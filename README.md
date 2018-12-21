@@ -17,9 +17,15 @@ git clone --depth 1 --single-branch --branch master https://github.com/xVanTurin
 
 2. use yarn or npm to install dep
 3. `yarn dev` to start dev mode
-   > for using css class in tsx
-   > `<div className={style.big}/>`
-   > you need to run `yarn tcm` to gen d.ts,feel free to remove them if you don't need
+
+> for using css class in tsx, like
+
+```jsx
+import * as style from './some.css'
+<div className={style.big} />
+```
+
+> you need to run `yarn tcm` to gen d.ts,feel free to remove them if you don't need(powered by typed-css-modules)
 
 ## Linter
 
@@ -35,7 +41,7 @@ git clone --depth 1 --single-branch --branch master https://github.com/xVanTurin
 ### Precommit
 
 if you don't want auto lint before commit, remove file`.git/hook/precommit`
-you can also stage changes and run `yarn precommit` to auto fix
+you can also stage changes and run `yarn precommit` to auto fix code
 
 ## Test
 
