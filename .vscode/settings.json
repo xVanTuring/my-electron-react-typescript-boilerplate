@@ -12,9 +12,11 @@
   },
 
   "javascript.validate.enable": true,
-  "javascript.format.enable": true,
+  "javascript.format.enable": false,
   "typescript.validate.enable": true,
-  "typescript.format.enable": true,
+  "typescript.format.enable": false,
+  // "tslint.enable": true,
+  // "tslint.autoFixOnSave": true,
 
   "search.exclude": {
     ".git": true,

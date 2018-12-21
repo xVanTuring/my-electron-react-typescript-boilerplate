@@ -1,9 +1,13 @@
 {
-  "defaultSeverity": "error",
-  "extends": "tslint-config-prettier",
+  "defaultSeverity": "warning",
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single", "jsx-double"]
+    "quotemark": [true, "single", "jsx-double"],
+    "no-console": false
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["node_modules/**", "app/**.prod.**", "app/dist/**", "app/**/**.json"]
+  }
 }

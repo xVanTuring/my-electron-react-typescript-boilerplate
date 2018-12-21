@@ -30,20 +30,20 @@ const configuration: Configuration = {
   module: devBabel.module,
 
   entry: {
-    renderer: Object.keys(dependencies || {})
+    renderer: Object.keys(dependencies || {}),
   },
 
   output: {
     library: 'renderer',
     path: dist,
     filename: '[name].dev.dll.js',
-    libraryTarget: 'var'
+    libraryTarget: 'var',
   },
 
   plugins: [
     new webpack.DllPlugin({
       path: path.join(dist, '[name].json'),
-      name: '[name]'
+      name: '[name]',
     }),
 
     /**
@@ -56,7 +56,7 @@ const configuration: Configuration = {
      * development checks
      */
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development'
+      NODE_ENV: 'development',
     }),
 
     new webpack.LoaderOptionsPlugin({
@@ -64,10 +64,10 @@ const configuration: Configuration = {
       options: {
         context: path.join(__dirname, '..', 'app'),
         output: {
-          path: path.join(__dirname, '..', 'dll')
-        }
-      }
-    })
-  ]
+          path: path.join(__dirname, '..', 'dll'),
+        },
+      },
+    }),
+  ],
 };
 export default merge.smart(baseConfig, configuration);

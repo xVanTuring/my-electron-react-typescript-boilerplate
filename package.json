@@ -19,7 +19,9 @@
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development TS_NODE_PROJECT=\"./configs/tsconfig.json\" electron -r ts-node/register ./app/main.dev.ts",
     "start-renderer-dev": "cross-env NODE_ENV=development TS_NODE_PROJECT=\"./configs/tsconfig.json\" webpack-dev-server --config configs/webpack.config.renderer.dev.babel.ts",
-    "tcm": "tcm app"
+    "tcm": "tcm app",
+    "lint":"tslint --project tsconfig.json --config tslint.json",
+    "lint-fix":"yarn lint --fix"
   },
   "main": "./app/main.prod.js",
   "build": {

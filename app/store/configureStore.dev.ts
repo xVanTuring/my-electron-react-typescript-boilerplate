@@ -1,10 +1,10 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { routerActions, routerMiddleware } from 'connected-react-router';
 import { createHashHistory } from 'history';
-import { routerMiddleware, routerActions } from 'connected-react-router';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
-import createRootReducer, { IState } from '../reducers';
+import thunk from 'redux-thunk';
 import * as counterActions from '../actions/counter';
+import createRootReducer, { IState } from '../reducers';
 // #region d.ts
 declare const window: Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?(...args: any[]): void;
@@ -30,8 +30,8 @@ const configureStore = (initialState?: IState) => {
 
   // Logging Middleware
   const logger = createLogger({
+    collapsed: true,
     level: 'info',
-    collapsed: true
   });
 
   // Skip redux logs in console during the tests
@@ -46,13 +46,13 @@ const configureStore = (initialState?: IState) => {
   // Redux DevTools Configuration
   const actionCreators = {
     ...counterActions,
-    ...routerActions
+    ...routerActions,
   };
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   const composeEnhancers: typeof compose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     ? (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
         // Options: http://extension.remotedev.io/docs/API/Arguments.html
-        actionCreators
+        actionCreators,
       }) as any)
     : compose;
   // Apply Middleware & Compose Enhancers

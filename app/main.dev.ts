@@ -9,8 +9,8 @@
  * @flow
  */
 import { app, BrowserWindow } from 'electron';
-import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
+import { autoUpdater } from 'electron-updater';
 // import MenuBuilder from './menu';
 
 export default class AppUpdater {
@@ -24,6 +24,7 @@ export default class AppUpdater {
 let mainWindow: BrowserWindow | null = null;
 
 if (process.env.NODE_ENV === 'production') {
+  // tslint:disable-next-line:no-var-requires
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
@@ -32,6 +33,7 @@ if (
   process.env.NODE_ENV === 'development' ||
   process.env.DEBUG_PROD === 'true'
 ) {
+  // tslint:disable-next-line:no-var-requires
   require('electron-debug')();
 }
 
@@ -66,9 +68,9 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
+    height: 728,
     show: false,
     width: 1024,
-    height: 728
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

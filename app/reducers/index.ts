@@ -1,12 +1,12 @@
-import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import counter, { TState as TCounterState } from './counter';
 import { History } from 'history';
+import { combineReducers } from 'redux';
+import counter, { TState as TCounterState } from './counter';
 
 const createRootReducer = (history: History) => {
   return combineReducers({
     counter,
-    router: connectRouter(history)
+    router: connectRouter(history),
   });
 };
 

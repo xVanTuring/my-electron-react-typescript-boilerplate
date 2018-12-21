@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-type Props = {
+interface IProps {
   children: React.ReactNode
-};
+}
 
-export default class App extends React.Component<Props> {
-  props: Props;
+export default class App extends React.Component<IProps> {
+  public props: IProps;
 
-  render() {
+  public render() {
     const { children } = this.props;
     return <React.Fragment>{children}</React.Fragment>;
   }

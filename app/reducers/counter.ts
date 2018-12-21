@@ -1,5 +1,5 @@
+import { decrement, increment } from '../actions/counter';
 import { IAction } from '../actions/helper';
-import { increment, decrement } from '../actions/counter';
 
 export type TState = number;
 

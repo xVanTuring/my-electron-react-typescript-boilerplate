@@ -1,5 +1,6 @@
-import { Action } from 'redux';
+import { Action  } from 'redux';
 
+// tslint:disable-next-line:no-empty-interface
 export interface IAction extends Action {}
 export interface IActionWithPayload<T> extends IAction {
   readonly payload: T;
@@ -24,7 +25,7 @@ export const actionCreator = <T>(type: string): IActionCreator<T> =>
     type,
     test(action: IAction): action is IActionWithPayload<T> {
       return action.type === type;
-    }
+    },
   });
 
 export const actionCreatorVoid = (type: string): IActionCreatorVoid =>
@@ -32,5 +33,5 @@ export const actionCreatorVoid = (type: string): IActionCreatorVoid =>
     type,
     test(action: IAction): action is IAction {
       return action.type === type;
-    }
+    },
   });

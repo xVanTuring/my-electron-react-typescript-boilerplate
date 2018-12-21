@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import * as style from './Counter.css';
 import * as routes from '../constants/routes.json';
+import * as style from './Counter.css';
 
-interface Props {
+interface IProps {
+  counter: number;
   increment(): void;
   incrementIfOdd(): void;
   incrementAsync(): void;
   decrement(): void;
-  counter: number;
 }
 
-export default class Counter extends React.Component<Props> {
-  render() {
+export default class Counter extends React.Component<IProps> {
+  public render() {
     const {
       increment,
       incrementIfOdd,
       incrementAsync,
       decrement,
-      counter
+      counter,
     } = this.props;
     return (
       <div>
