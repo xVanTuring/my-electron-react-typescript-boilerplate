@@ -22,12 +22,6 @@
     "noEmit": true,
     "rootDir": "app"
   },
-  "include": ["app"],
-  "exclude": [
-    "node_modules",
-    "build",
-    "*.prod.*",
-    "*.map",
-    "dist",
-  ]
+  "include": ["app", "configs"],
+  "exclude": ["node_modules", "build", "*.prod.*", "*.map", "dist"]
 }
