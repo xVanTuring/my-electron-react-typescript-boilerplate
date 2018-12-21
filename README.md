@@ -5,7 +5,6 @@
 ## Info
 
 No Test
-No Lint
 
 ## Use
 
@@ -22,7 +21,23 @@ git clone --depth 1 --single-branch --branch master https://github.com/xVanTurin
    > `<div className={style.big}/>`
    > you need to run `yarn tcm` to gen d.ts,feel free to remove them if you don't need
 
-## Test & Linter
+## Linter
+
+### Typescript
+
+> run `yarn lint-fix` to auto fix fixable problem
+> For Vscode User use prettier ext to get full exp
+
+### CSS/SCSS
+
+> run `yarn lint-styles-fix` to fix css/scss
+
+### Precommit
+
+if you don't want auto lint before commit, remove file`.git/hook/precommit`
+you can also stage changes and run `yarn precommit` to auto fix
+
+## Test
 
 I am lazy, if you need them you can create on you own base on electron-react-boilerplate
 
