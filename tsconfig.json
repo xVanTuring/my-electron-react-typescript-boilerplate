@@ -20,7 +20,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "rootDir": "app"
+    "rootDirs": ["app", "configs"]
   },
   "include": ["app", "configs"],
   "exclude": ["node_modules", "build", "*.prod.*", "*.map", "dist"]
