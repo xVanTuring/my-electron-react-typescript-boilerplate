@@ -25,7 +25,8 @@
     "lint-fix":"yarn lint --fix",
     "lint-styles": "stylelint  \"**/*.(css|scss)\" --ignore-path .eslintignore --syntax scss",
     "lint-styles-fix": "yarn lint-styles --fix",
-    "postlint-styles-fix": "prettier --ignore-path .eslintignore --single-quote --write \"**/*.{css,scss}\""
+    "postlint-styles-fix": "prettier --ignore-path .eslintignore --single-quote --write \"**/*.{css,scss}\"",
+    "test":"echo 0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
