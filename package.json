@@ -14,7 +14,7 @@
     "package-ci": "yarn postinstall && yarn build && electron-builder --publish always",
     "package-linux": "yarn build && electron-builder build --linux",
     "package-win": "yarn build && electron-builder build --win --x64",
-    "postinstall": "electron-builder install-app-deps package.json && yarn build-dll && opencollective-postinstall",
+    "postinstall": "electron-builder install-app-deps package.json && yarn build-dll && opencollective-postinstall&&yarn tcm",
     "prestart": "yarn build",
     "start": "cross-env NODE_ENV=production electron ./app/main.prod.js",
     "start-main-dev": "cross-env HOT=1 NODE_ENV=development TS_NODE_PROJECT=\"./configs/tsconfig.json\" electron -r ts-node/register ./app/main.dev.ts",
